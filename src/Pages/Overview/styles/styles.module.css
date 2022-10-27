@@ -1,0 +1,28 @@
+.overviewCards {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+.subScript {
+  font-size: smaller;
+  color: rgb(73, 72, 72);
+}
+.flexColumnDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 800) {
+    .overviewCards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+    .overviewCards:first-child {
+        margin-top: 1rem;
+    }
+    .overviewCards:last-child {
+        margin-bottom: 1rem;
+    }
+} 
