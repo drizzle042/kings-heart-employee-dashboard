@@ -31,11 +31,18 @@ const Header = ({ setOpen, open, drawerWidth }) => {
     
     return (
       <Box>
-        <AppBar position="fixed" open={open} sx={{ bgcolor: "#fff", color: "#000" }}>
+        <AppBar 
+        position="fixed" 
+        open={open} 
+        elevation={2} 
+        sx={{ 
+          bgcolor: "#fff", 
+          color: "#000" 
+        }}>
           <div className={styles.flexHeader}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <MenuIcon 
-                size="large"
+                fontSize={"large"} 
                 onClick={() => {
                     setOpen(!open)
                 }}
@@ -53,17 +60,19 @@ const Header = ({ setOpen, open, drawerWidth }) => {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <Avatar src={ProfileImage}/>
+                <Avatar 
+                src={ProfileImage} 
+                sx={{ width: 50, height: 50 }} />
               </IconButton>
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center" }}>
-                <Typography 
-                  sx={{ 
-                    padding: "0.4rem", 
-                    marginTop: "auto", 
-                    marginBottom: "auto"
-                  }}>{profile.name}</Typography>
-                <ExpandMoreSharpIcon />
-              </Box>
+              <Typography 
+              sx={{ 
+                padding: "0.4rem", 
+                marginTop: "auto", 
+                marginBottom: "auto",
+                display: { xs: "none", md: "flex" }
+              }}>{profile.name}</Typography>
+              <ExpandMoreSharpIcon
+              fontSize={"large"} />
             </div>
           </div>
         </AppBar>

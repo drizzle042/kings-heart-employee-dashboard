@@ -5,14 +5,9 @@ const profile = {
 
 const studentClass = {
     class: "JSS2",
-    performance: +13,
-    students: [
-        "Algeria",
-        "Benin",
-        "Senegal",
-        "Ivory Coast",
-        "South Africa"
-    ]
+    performance: "+34%",
+    ratings: "-16%",
+    kudos: "+23%",
 }
 
 export { profile, studentClass }

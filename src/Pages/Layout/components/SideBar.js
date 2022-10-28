@@ -73,6 +73,8 @@ const SideBar = ({ children }) => {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
+    paddingTop: "1.1rem",
+    paddingBottom: "1.1rem",
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
@@ -109,7 +111,7 @@ const SideBar = ({ children }) => {
                   onClick={handleDrawerClose} 
                   sx={{backgroundColor: "#ECE7E7"}} 
                   className={styles.button}>
-                  <KeyboardBackspaceIcon />
+                  <KeyboardBackspaceIcon fontSize={"large"} />
                 </IconButton>
             </DrawerHeader>
             <Divider />
@@ -121,7 +123,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
-                        <GridViewIcon />
+                        <GridViewIcon fontSize={"large"} />
                       </ListItemIcon>
                       <ListItemText primary={"Overview"} />
                     </ListItemButton>
@@ -129,7 +131,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
-                        <ReceiptLongIcon />
+                        <ReceiptLongIcon fontSize={"large"} />
                       </ListItemIcon>
                       <ListItemText primary={"Scoresheets"} />
                     </ListItemButton>
@@ -137,7 +139,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
-                        <BorderColorIcon />
+                        <BorderColorIcon fontSize={"large"} />
                       </ListItemIcon>
                       <ListItemText primary={"Exams"} />
                     </ListItemButton>
@@ -145,7 +147,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
-                        <AssignmentIcon />
+                        <AssignmentIcon fontSize={"large"} />
                       </ListItemIcon>
                       <ListItemText primary={"Assignments"} />
                     </ListItemButton>
@@ -153,7 +155,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <CampaignIcon />
+                      <CampaignIcon fontSize={"large"} />
                     </ListItemIcon>
                     <ListItemText primary={"Anouncements"} />
                   </ListItemButton>
@@ -161,7 +163,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <MessageIcon />
+                      <MessageIcon fontSize={"large"} />
                     </ListItemIcon>
                     <ListItemText primary={"Messages"} />
                   </ListItemButton>
@@ -171,7 +173,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <SettingsIcon />
+                      <SettingsIcon fontSize={"large"} />
                     </ListItemIcon>
                     <ListItemText primary={"Settings"} />
                   </ListItemButton>
@@ -179,7 +181,7 @@ const SideBar = ({ children }) => {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <LogoutIcon />
+                      <LogoutIcon fontSize={"large"} />
                     </ListItemIcon>
                     <ListItemText sx={{color: "#FE2525"}} primary={"Log out"} />
                   </ListItemButton>

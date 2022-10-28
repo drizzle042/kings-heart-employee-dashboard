@@ -1,28 +1,40 @@
 .overviewCards {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0.5rem;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 3rem;
+}
+.evaluationCard {
+    width: 280px;
+    margin: 0.4rem;
 }
 .subScript {
-  font-size: smaller;
+  font-size: medium;
   color: rgb(73, 72, 72);
+  font-weight: 700;
 }
 .flexColumnDiv {
   display: flex;
   flex-direction: column;
 }
 
-@media only screen and (max-width: 800) {
+@media only screen and (max-width: 500px) {
     .overviewCards {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         padding: 0.5rem;
     }
+    .evaluationCard {
+        width: 90%;
+        margin: 1rem;
+    }
     .overviewCards:first-child {
-        margin-top: 1rem;
+        margin-top: 3rem;
     }
     .overviewCards:last-child {
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
 } 

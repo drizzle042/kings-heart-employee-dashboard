@@ -1,34 +1,122 @@
 import styles from "./styles/styles.module.css";
 import { studentClass } from "../../Lib/static/data";
-import campusImg from "../../Lib/assets/campus.png";
+import performanceImg from "../../Lib/assets/performance.png";
+import rateImg from "../../Lib/assets/rate.png";
+import bonusImg from "../../Lib/assets/bonus.png";
 import Layout from "../Layout/Layout";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 
 const Dashboard = () => {
     return (
         <Layout>
             <div className={styles.main}>
                 <div className={styles.overviewCards}>
-                {[1, 2, 3, 4].map((i, index) => (
-                    <Card elevation={8} sx={{minWidth: 200, margin: "0.4rem"}} key={index}>
-                        <CardContent sx={{display: "flex", alignItems: "center", paddingLeft: "0.7rem", paddingTop: "0.4rem", paddingBottom: "0.4rem"}}>
-                            <img src={campusImg} alt={studentClass.class} width={70} height={70} />
-                            <div className={styles.flexColumnDiv} style={{paddingLeft: "0.8rem"}}>
-                                <Typography sx={{fontSize: "2rem", fontWeight: "700"}}>
-                                    {studentClass.class} 
-                                    <span className={styles.subScript} style={{padding: "0.8rem", color: "limegreen"}}>+{studentClass.performance}</span> 
-                                    <span style={{padding: "0.3rem"}}>
-                                        <TrendingUpTwoToneIcon sx={{color: "limegreen"}} />
-                                    </span>
-                                </Typography>
-                                <Typography className={styles.subScript}>There are currently {studentClass.students.length} students in this class</Typography>
+                    <Card 
+                        className={styles.evaluationCard}
+                        elevation={4} 
+                        sx={{
+                            borderRadius: 5
+                        }}>
+                        <CardContent 
+                            sx={{
+                                display: "flex", 
+                                justifyContent: "space-between",
+                                alignItems: "center", 
+                            }}>
+                            <img src={performanceImg} alt={studentClass.performance} width={70} height={70} />
+                            <Typography 
+                                sx={{
+                                    fontSize: "1.3rem",
+                                    lineHeight: 1,
+                                    textAlign: "center",
+                                    padding: "10px"
+                                }}>Student <br/>performance</Typography>
+                            <div className={styles.flexColumnDiv}>
+                                <TrendingUpIcon 
+                                fontSize={"large"} 
+                                sx={{color: "#00FF44"}} />
+                                <span 
+                                className={styles.subScript} 
+                                style={{
+                                    color: "#00FF44", 
+                                }}>
+                                    {studentClass.performance}
+                                </span>
                             </div>
                         </CardContent>
                     </Card>
-                ))}
+                    <Card 
+                        className={styles.evaluationCard}
+                        elevation={4} 
+                        sx={{
+                            borderRadius: 5
+                        }}>
+                        <CardContent 
+                            sx={{
+                                display: "flex", 
+                                justifyContent: "space-between",
+                                alignItems: "center", 
+                            }}>
+                            <img src={rateImg} alt={studentClass.ratings} width={70} height={70} />
+                            <Typography 
+                                sx={{
+                                    fontSize: "1.3rem",
+                                    lineHeight: 1,
+                                    textAlign: "center",
+                                    padding: "10px"
+                                }}>Your <br/>ratings</Typography>
+                            <div className={styles.flexColumnDiv}>
+                                <TrendingDownIcon 
+                                fontSize={"large"} 
+                                sx={{color: "#FE2525"}} />
+                                <span 
+                                className={styles.subScript} 
+                                style={{
+                                    color: "#FE2525", 
+                                }}>
+                                    {studentClass.ratings}
+                                </span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card 
+                        className={styles.evaluationCard}
+                        elevation={4} 
+                        sx={{
+                            borderRadius: 5
+                        }}>
+                        <CardContent 
+                            sx={{
+                                display: "flex", 
+                                justifyContent: "space-between",
+                                alignItems: "center", 
+                            }}>
+                            <img src={bonusImg} alt={studentClass.kudos} width={70} height={70} />
+                            <Typography 
+                                sx={{
+                                    fontSize: "1.3rem",
+                                    lineHeight: 1,
+                                    textAlign: "center",
+                                    padding: "10px"
+                                }}>Kudos</Typography>
+                            <div className={styles.flexColumnDiv}>
+                                <TrendingUpIcon 
+                                fontSize={"large"} 
+                                sx={{color: "#00FF44"}} />
+                                <span 
+                                className={styles.subScript} 
+                                style={{
+                                    color: "#00FF44", 
+                                }}>
+                                    {studentClass.kudos}
+                                </span>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </Layout>
