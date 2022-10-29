@@ -66,7 +66,8 @@ const Header = ({ setOpen, open, drawerWidth }) => {
               </IconButton>
               <Typography 
               sx={{ 
-                padding: "0.4rem", 
+                paddingLeft: "0.6rem", 
+                paddingRight: "0.3rem", 
                 marginTop: "auto", 
                 marginBottom: "auto",
                 display: { xs: "none", md: "flex" }

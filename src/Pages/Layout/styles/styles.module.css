@@ -9,7 +9,7 @@
 .flexHeader {
   display: flex;
   justify-content: space-between;
-  padding: 0.4rem 2rem;
+  padding: 0rem 2rem;
 }
 .clickableDiv {
   display: flex;
@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   width: 95%;
+  height: 100vh;
 }
 .sideBarDiv {
   display: flex;

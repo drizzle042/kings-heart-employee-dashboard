@@ -1,3 +1,4 @@
+/* Overview first column */
 .overviewCards {
     display: flex;
     justify-content: space-between;
@@ -12,29 +13,60 @@
 }
 .subScript {
   font-size: medium;
-  color: rgb(73, 72, 72);
   font-weight: 700;
 }
 .flexColumnDiv {
   display: flex;
   flex-direction: column;
 }
-
 @media only screen and (max-width: 500px) {
     .overviewCards {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0.5rem;
     }
     .evaluationCard {
         width: 90%;
-        margin: 1rem;
-    }
-    .overviewCards:first-child {
-        margin-top: 3rem;
-    }
-    .overviewCards:last-child {
-        margin-bottom: 3rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 } 
+
+/* Second column */
+.secondColumn {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 3rem;
+}
+.informationCard {
+    width: 350px;
+    margin: 0.4rem;
+    height: 550px;
+}
+.informationCardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 480px;
+}
+.informationCardContentText {
+    width: 190px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.activityTime {
+    color: #05ACEB;
+    font-style: italic;
+    white-space: nowrap;
+    text-align: right;
+}
+.cardAction {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+}

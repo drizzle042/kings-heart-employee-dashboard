@@ -94,6 +94,7 @@ const SideBar = ({ children }) => {
           sx={{
             width: drawerWidth,
             position: "fixed",
+            zIndex: "100",
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               width: drawerWidth,
@@ -189,7 +190,7 @@ const SideBar = ({ children }) => {
               </List>
             </div>
           </div>
-          <div onMouseDown={e => handleMouseDown(e)} className={styles.dragger} />
+          <div className={styles.dragger} onMouseDown={e => handleMouseDown(e)} />
         </div>
         </Drawer>
         <Main open={open}>
