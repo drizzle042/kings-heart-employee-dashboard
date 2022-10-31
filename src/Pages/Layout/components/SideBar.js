@@ -72,9 +72,7 @@ const SideBar = ({ children }) => {
     const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    paddingTop: "1.1rem",
-    paddingBottom: "1.1rem",
+    padding: "0.8rem",
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',

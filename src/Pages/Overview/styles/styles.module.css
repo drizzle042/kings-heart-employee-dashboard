@@ -23,6 +23,7 @@
     .overviewCards {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 3rem;
     }
     .evaluationCard {
         width: 90%;
@@ -32,7 +33,7 @@
 } 
 
 /* Second column */
-.secondColumn {
+.basicColumns {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
@@ -40,6 +41,7 @@
     margin: auto;
     margin-top: 3rem;
 }
+/* Anouncemnet card */
 .informationCard {
     width: 350px;
     margin: 0.4rem;
@@ -61,12 +63,45 @@
     color: #05ACEB;
     font-style: italic;
     white-space: nowrap;
-    text-align: right;
 }
 .cardAction {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0.5rem;
+    padding: 2rem;
     cursor: pointer;
+}
+/* To do's card */
+.toDoCard {
+    width: 500px;
+    margin: 0.4rem;
+    height: 550px;
+}
+.toDoListContent {
+    max-height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.statusDisplay {
+    font-style: italic;
+    text-align: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+@media only screen and (max-width: 500px) {
+    .basicColumns {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0rem;
+    }
+    .informationCard {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .toDoCard {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
