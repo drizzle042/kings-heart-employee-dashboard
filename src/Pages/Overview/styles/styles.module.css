@@ -60,7 +60,7 @@
     text-overflow: ellipsis;
 }
 .activityTime {
-    color: #05ACEB;
+    color: var(--blue);
     font-style: italic;
     white-space: nowrap;
 }

@@ -1,3 +1,4 @@
+import { forwardRef, useState } from "react";
 import styles from "./styles/styles.module.css";
 import { 
     evaluationOverview, 
@@ -23,13 +24,48 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Divider from "@mui/material/Divider";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import TextField from "@mui/material/TextField";
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import AddIcon from '@mui/icons-material/Add';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Checkbox } from "@mui/material";
 
-const Dashboard = () => {
+const Overview = () => {
+    // Client side database management for To do list offline
+    // const DB = indexedDB;
+    // const request = DB.open("toDoList", 1);
+    
+    const Transition = forwardRef(function Transition(props, ref) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
+
+    const [open, setOpen] = useState(false);
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    
+    const [dateValue, setDateValue] = useState(Date());
+
+    const handleChangeDate = (e) => {
+        setDateValue(e);
+    };
+
     return (
         <Layout>
             <main className={styles.main}>
@@ -57,11 +93,11 @@ const Dashboard = () => {
                             <div className={styles.flexColumnDiv}>
                                 <TrendingUpIcon 
                                 fontSize={"large"} 
-                                sx={{color: "#00FF44"}} />
+                                sx={{color: "var(--green)"}} />
                                 <span 
                                 className={styles.subScript} 
                                 style={{
-                                    color: "#00FF44", 
+                                    color: "var(--green)", 
                                 }}>
                                     {evaluationOverview.performance}
                                 </span>
@@ -91,11 +127,11 @@ const Dashboard = () => {
                             <div className={styles.flexColumnDiv}>
                                 <TrendingDownIcon 
                                 fontSize={"large"} 
-                                sx={{color: "#FE2525"}} />
+                                sx={{color: "var(--red)"}} />
                                 <span 
                                 className={styles.subScript} 
                                 style={{
-                                    color: "#FE2525", 
+                                    color: "var(--red)", 
                                 }}>
                                     {evaluationOverview.ratings}
                                 </span>
@@ -125,11 +161,11 @@ const Dashboard = () => {
                             <div className={styles.flexColumnDiv}>
                                 <TrendingUpIcon 
                                 fontSize={"large"} 
-                                sx={{color: "#00FF44"}} />
+                                sx={{color: "var(--green)"}} />
                                 <span 
                                 className={styles.subScript} 
                                 style={{
-                                    color: "#00FF44", 
+                                    color: "var(--green)", 
                                 }}>
                                     {evaluationOverview.kudos}
                                 </span>
@@ -154,7 +190,7 @@ const Dashboard = () => {
                                     generalAnouncement.data.slice(0, 5).map((i, index) => (
                                         <TableRow 
                                         key={index}
-                                        sx={{...(index % 2 ? { backgroundColor: "#D8D4D4"} : "")}}>
+                                        sx={{...(index % 2 ? { backgroundColor: "var(--gray)"} : "")}}>
                                             <TableCell>
                                                 <Avatar src={authorImg} alt={i.by}/>
                                             </TableCell>
@@ -196,7 +232,7 @@ const Dashboard = () => {
                         <CardHeader
                             title="This week"
                             action={
-                            <IconButton>
+                            <IconButton onClick={handleClickOpen}>
                                 <AddIcon
                                 fontSize={"large"} />
                             </IconButton>
@@ -244,7 +280,7 @@ const Dashboard = () => {
                                     messages.data.slice(0, 5).map((i, index) => (
                                         <TableRow 
                                         key={index}
-                                        sx={{...(index % 2 ? { backgroundColor: "#D8D4D4"} : "")}}>
+                                        sx={{...(index % 2 ? { backgroundColor: "var(--gray)"} : "")}}>
                                             <TableCell>
                                                 <Avatar src={authorImg} alt={i.by}/>
                                             </TableCell>
@@ -311,18 +347,18 @@ const Dashboard = () => {
                                                         style={{...(
                                                             i.status === "Approved" ?
                                                             {
-                                                                border: "1px solid #00FF44",
-                                                                color: "#00FF44"
+                                                                border: "1px solid var(--green)",
+                                                                color: "var(--green)"
                                                             } :
                                                             i.status === "Pending" ?
                                                             {
-                                                                border: "1px solid #F68D14",
-                                                                color: "#F68D14"
+                                                                border: "1px solid var(--orange)",
+                                                                color: "var(--orange)"
                                                             } :
                                                             i.status === "Rejected" ?
                                                             {
-                                                                border: "1px solid #FE2525",
-                                                                color: "#FE2525"
+                                                                border: "1px solid var(--red)",
+                                                                color: "var(--red)"
                                                             } : ""
                                                         )}}>{i.status}</div>
                                                     </TableCell>
@@ -342,8 +378,39 @@ const Dashboard = () => {
                     </Card>
                 </section>
             </main>
+            <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                onClose={handleClose}
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Add a new task for this week."}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <TextField label="Task" variant="outlined" fullWidth margin="normal" />
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DateTimePicker
+                            label="Schedule a reminder"
+                            disablePast
+                            value={dateValue}
+                            onChange={handleChangeDate}
+                            renderInput={(params) => <TextField margin="normal" fullWidth {...params} />}
+                            />
+                        </LocalizationProvider>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                    variant="outlined" 
+                    sx={{color: "var(--red)", borderColor: "var(--red)"}}
+                    onClick={handleClose}>Cancel</Button>
+                    <Button
+                    variant="contained" 
+                    onClick={handleClose}>Save</Button>
+                </DialogActions>
+            </Dialog>
         </Layout>
     );
 }
 
-export default Dashboard;
+export default Overview;

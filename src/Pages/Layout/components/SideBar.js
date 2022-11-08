@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react"; 
+import { Link } from "react-router-dom";
 import styles from "../styles/styles.module.css";
 import logo from "../../../Lib/assets/king_s_heart_crown.png"
 import { styled } from '@mui/material/styles';
@@ -121,18 +122,22 @@ const SideBar = ({ children }) => {
               <List>
                 <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>
-                        <GridViewIcon fontSize={"large"} />
-                      </ListItemIcon>
-                      <ListItemText primary={"Overview"} />
+                      <Link to="/overview">
+                        <ListItemIcon>
+                          <GridViewIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary={"Overview"} />
+                      </Link>
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>
-                        <ReceiptLongIcon fontSize={"large"} />
-                      </ListItemIcon>
-                      <ListItemText primary={"Scoresheets"} />
+                      <Link to="/scoresheets">
+                        <ListItemIcon>
+                          <ReceiptLongIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary={"Scoresheets"} />
+                      </Link>
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>

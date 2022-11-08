@@ -1,9 +1,23 @@
-body {
-    margin: 0;
+:root {
+    --green: #00FF44;
+    --red: #FE2525;
+    --blue: #05ACEB;
+    --orange: #F68D14;
+    --gray: #D8D4D4;
+    --white: #fff;
+    --black: rgb(32, 30, 30);
 }
 *::-webkit-scrollbar {
     width: 3px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: #05ACEB;
+    background-color: var(--blue);
+}
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    display: inline-flex;
+    color: var(--black);
 }
