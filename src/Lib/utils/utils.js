@@ -17,4 +17,5 @@ const activityTime = (createdAt) => {
     return specificTime
 };
 
+
 export { activityTime }

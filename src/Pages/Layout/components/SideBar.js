@@ -44,10 +44,10 @@ const SideBar = ({ children }) => {
     };
 
     const handleMouseMove = useCallback(e => {
-    const newWidth = e.clientX - document.body.offsetLeft;
-    if (newWidth > minDrawerWidth && newWidth < maxDrawerWidth) {
-        setDrawerWidth(newWidth);
-    }
+      const newWidth = e.clientX - document.body.offsetLeft;
+      if (newWidth > minDrawerWidth && newWidth < maxDrawerWidth) {
+          setDrawerWidth(newWidth);
+      }
     }, []);
 
     const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -108,9 +108,8 @@ const SideBar = ({ children }) => {
           <div className={styles.sideBarPaper}>
             <DrawerHeader>
                 <IconButton 
-                  onClick={handleDrawerClose} 
-                  sx={{backgroundColor: "#ECE7E7"}} 
-                  className={styles.button}>
+                onClick={handleDrawerClose} 
+                sx={{backgroundColor: "var(--lightgray)"}}>
                   <KeyboardBackspaceIcon fontSize={"large"} />
                 </IconButton>
             </DrawerHeader>
@@ -122,7 +121,7 @@ const SideBar = ({ children }) => {
               <List>
                 <ListItem disablePadding>
                     <ListItemButton>
-                      <Link to="/overview">
+                      <Link to="/">
                         <ListItemIcon>
                           <GridViewIcon fontSize={"large"} />
                         </ListItemIcon>
@@ -142,10 +141,12 @@ const SideBar = ({ children }) => {
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>
-                        <BorderColorIcon fontSize={"large"} />
-                      </ListItemIcon>
-                      <ListItemText primary={"Exams"} />
+                      <Link to="/exams">
+                        <ListItemIcon>
+                          <BorderColorIcon fontSize={"large"} />
+                        </ListItemIcon>
+                        <ListItemText primary={"Exams"} />
+                      </Link>
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
@@ -187,7 +188,7 @@ const SideBar = ({ children }) => {
                     <ListItemIcon>
                       <LogoutIcon fontSize={"large"} />
                     </ListItemIcon>
-                    <ListItemText sx={{color: "#FE2525"}} primary={"Log out"} />
+                    <ListItemText sx={{color: "var(--red)"}} primary={"Log out"} />
                   </ListItemButton>
                 </ListItem>
               </List>

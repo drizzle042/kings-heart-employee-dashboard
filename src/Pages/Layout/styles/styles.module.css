@@ -12,6 +12,11 @@
   justify-content: space-between;
   padding: 0rem 2rem;
 }
+@media only screen and (max-width: 500px) {
+  .flexHeader {
+    padding: 0rem 1rem;
+  }
+}
 .clickableDiv {
   display: flex;
   align-items: center;
@@ -21,7 +26,6 @@
 .logoContainer {
   min-width: 190px; 
   max-width: 200px;
-  /* margin-left: 1rem; */
   display: flex;
   justify-content: center;
 }

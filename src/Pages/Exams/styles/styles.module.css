@@ -1,0 +1,35 @@
+.guide {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+.instructionCaption {
+    margin-top: 4rem;
+    display: flex;
+    flex-flow: column;
+}
+@media only screen and (max-width: 500px) {
+    .instructionTextField {
+        width: 100%;
+    }
+    .instructionCaption {
+        margin-top: 2rem;
+    }
+}
+.addQuestion {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.previewAndSave {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.questionNavigation {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}

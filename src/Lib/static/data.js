@@ -178,7 +178,7 @@ const scoresheet = {
         {
             id: 19849,
             names: "Douglas Hue",
-            ats1: 0,
+            ats1: null,
             ats2: 8,
             midTerms: 7,
             exams: 42
@@ -194,7 +194,7 @@ const scoresheet = {
         {
             id: 56849,
             names: "Timothy Melbourne",
-            ats1: 0,
+            ats1: null,
             ats2: 3,
             midTerms: 13,
             exams: 22
