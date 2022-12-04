@@ -12,7 +12,7 @@ import { Authentication } from "../../Lib/Endpoints/Endpoints";
 
 const SignIn = () => {
   
-  localStorage.clear();
+  useEffect(() => localStorage.clear())
   
   const { 
     postFunc, 
@@ -32,9 +32,9 @@ const SignIn = () => {
     if (message?.authToken){
       setOpenSnackBar(true);
       setFeedBackMessage(message?.message)
-      localStorage.setItem("user-tokens", String(message?.authToken))
       window.setTimeout(() => {
-        navigate("/overview")
+        localStorage.setItem("user-tokens", String(message?.authToken))
+        navigate("/scoresheets")
       }, 3000)
     } else if (message?.message) {
         setOpenSnackBar(true);

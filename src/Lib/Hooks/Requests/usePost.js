@@ -8,7 +8,7 @@ const usePost = (endpoint) => {
   const [messageSeverity, setMessageSeverity] = useState(null)
   const tokens = localStorage.getItem("user-tokens") || "none"
 
-  function postFunc(method, contentType, data, action=null){
+  function postFunc(method, contentType, data){
     setIsLoading(true)
     fetch(endpoint, {
         method: method,
@@ -26,7 +26,6 @@ const usePost = (endpoint) => {
                         setIsLoading(false)
                         setMessageSeverity("success")
                         setMessage(resObj);
-                        if(action!=null)action()
                     })
                         .catch(() => {
                             setIsLoading(false)

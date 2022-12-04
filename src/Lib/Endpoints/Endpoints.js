@@ -21,12 +21,28 @@ const Authentication = {
     resetPassword: `${baseUrl}/employees/api/v0/employees/employee-signin/`
 }
 
-const Admin = {
-    getExistingClasses: `${baseUrl}/admin/api/v0/administrators/existing-classes/`,
-    getExistingSubjects: `${baseUrl}/admin/api/v0/administrators/existing-subjects/`
+const Account = {
+    getAccount: `${baseUrl}/employees/api/v0/employees/account/`
+}
+
+const Misc = {
+    getClasses: `${baseUrl}/employees/api/v0/employees/teaching-classes/`,
+    getSubjects: `${baseUrl}/employees/api/v0/employees/subjects/`
+}
+
+const Scoresheet = {
+    getScoresheet: `${baseUrl}/employees/api/v0/employees/scoresheet/`,
+    updateScoresheet: `${baseUrl}/employees/api/v0/employees/scoresheet/`
+}
+
+const Helpers = {
+    checkConnection: `${baseUrl}/utilities/api/v0/check-online/`
 }
 
 export { 
+    Account,
     Authentication,
-    Admin
+    Helpers,
+    Misc,
+    Scoresheet
 }

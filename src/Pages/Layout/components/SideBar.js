@@ -14,8 +14,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsIcon from '@mui/icons-material/Settings';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CampaignIcon from '@mui/icons-material/Campaign';
@@ -121,7 +121,7 @@ const SideBar = ({ children }) => {
               <List>
                 <ListItem disablePadding>
                     <ListItemButton>
-                      <Link to="/">
+                      <Link to="/overview">
                         <ListItemIcon>
                           <GridViewIcon fontSize={"large"} />
                         </ListItemIcon>
@@ -185,10 +185,12 @@ const SideBar = ({ children }) => {
                 </ListItem>
                 <ListItem disablePadding>
                   <ListItemButton>
-                    <ListItemIcon>
-                      <LogoutIcon fontSize={"large"} />
-                    </ListItemIcon>
-                    <ListItemText sx={{color: "var(--red)"}} primary={"Log out"} />
+                    <Link to="/signin">
+                      <ListItemIcon>
+                        <LogoutIcon fontSize={"large"} />
+                      </ListItemIcon>
+                      <ListItemText sx={{color: "var(--red)"}} primary={"Log out"} />
+                    </Link>
                   </ListItemButton>
                 </ListItem>
               </List>

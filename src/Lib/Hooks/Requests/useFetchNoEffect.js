@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const useFetch = (endpoint) => {
+const useFetchNoEffect = (endpoint) => {
 
   const [data, setData] = useState(null);
   // Make sure to control this feature as rigidly as possible throughout the request.
@@ -113,10 +113,7 @@ const useFetch = (endpoint) => {
             })
   };
 
-  // eslint-disable-next-line
-  useEffect(fetchData, [endpoint]);
-
   return { data, fetchData, isLoading, error, handleSearchInput };
 };
 
-export default useFetch;
+export default useFetchNoEffect;

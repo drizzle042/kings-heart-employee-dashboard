@@ -1,5 +1,5 @@
 // Client side database interaction
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 
 const createDB = (
@@ -94,9 +94,9 @@ const useDB = (
     objectStore
 ) => {
 
-    const [data, setData] = useState([])
+    const [data, setData] = useState(null)
 
-    function fetch(){
+    function fetchOfflineData(){
         // Client side database management for scoresheet offline
         const DB = indexedDB
         const request = DB.open(database, version)
@@ -122,12 +122,7 @@ const useDB = (
         }
     }
 
-    useEffect(() => {
-        fetch()
-        // eslint-disable-next-line
-    }, [])
-
-    return ({data, fetch})
+    return ({data, fetchOfflineData})
 }
  
 export { createDB, populateDBCollection, updateDBCollection, useDB };
