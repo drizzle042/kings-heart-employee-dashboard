@@ -18,6 +18,7 @@ const baseUrl = process.env.REACT_APP_BACKEND_API_URL
 
 const Authentication = {
     generateAuthTokens: `${baseUrl}/employees/api/v0/employees/employee-signin/`,
+    requestPasswordReset: `${baseUrl}/employees/api/v0/employees/request-password-change/`,
     resetPassword: `${baseUrl}/employees/api/v0/employees/employee-signin/`
 }
 
