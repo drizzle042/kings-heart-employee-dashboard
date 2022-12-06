@@ -28,7 +28,8 @@ const Account = {
 
 const Misc = {
     getClasses: `${baseUrl}/employees/api/v0/employees/teaching-classes/`,
-    getSubjects: `${baseUrl}/employees/api/v0/employees/subjects/`
+    getSubjects: `${baseUrl}/employees/api/v0/employees/subjects/`,
+    getCurrentTerm: `${baseUrl}/employees/api/v0/employees/current-term-meta/`
 }
 
 const Scoresheet = {
