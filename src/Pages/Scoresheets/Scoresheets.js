@@ -169,6 +169,14 @@ const Scoresheets = () => {
         const { data: classes, isLoading: FetchClassesLoading, error: errorOnFetchClasses } = useFetch(Misc.getClasses)
         
         const { data: subjects, isLoading: FetchSubjectsLoading, error: errorOnFetchSubjects } = useFetch(Misc.getSubjects)
+        
+        const { data: term, isLoading: FetchTermLoading, error: errorOnFetchTerm } = useFetch(Misc.getCurrentTerm)
+
+        const possibleTerms = {
+            "1": "First",
+            "2": "Second",
+            "3": "Third"
+        }
     
         const {
             data: scoresheets, 
@@ -224,7 +232,7 @@ const Scoresheets = () => {
             <>
                 <div
                 className={styles.searchBar}>
-                    {(FetchClassesLoading || FetchSubjectsLoading || scoresheetIsLoading) && <Loader />}
+                    {(FetchClassesLoading || FetchSubjectsLoading || FetchTermLoading || scoresheetIsLoading) && <Loader />}
                     <TextField 
                     select
                     className={styles.searchBarSelect}
@@ -282,9 +290,13 @@ const Scoresheets = () => {
                         })
                     }}
                     label="Term">
-                        <MenuItem value="1">First term</MenuItem>
-                        <MenuItem value="2">Second term</MenuItem>
-                        <MenuItem value="3">Third term</MenuItem>
+                        <MenuItem disabled>Term</MenuItem>
+                        {
+                            (term &&
+                            <MenuItem selected value={term?.data?.term}>{possibleTerms[term?.data?.term]} term</MenuItem>
+                            ) || 
+                            <p className={styles.errorText}>{errorOnFetchTerm?.message}</p>
+                        }
                     </TextField>
                     <Button
                     variant="contained"

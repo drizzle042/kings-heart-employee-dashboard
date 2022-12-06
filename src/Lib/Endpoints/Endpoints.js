@@ -18,6 +18,7 @@ const baseUrl = process.env.REACT_APP_BACKEND_API_URL
 
 const Authentication = {
     generateAuthTokens: `${baseUrl}/employees/api/v0/employees/employee-signin/`,
+    requestPasswordReset: `${baseUrl}/employees/api/v0/employees/request-password-change/`,
     resetPassword: `${baseUrl}/employees/api/v0/employees/employee-signin/`
 }
 
@@ -27,7 +28,8 @@ const Account = {
 
 const Misc = {
     getClasses: `${baseUrl}/employees/api/v0/employees/teaching-classes/`,
-    getSubjects: `${baseUrl}/employees/api/v0/employees/subjects/`
+    getSubjects: `${baseUrl}/employees/api/v0/employees/subjects/`,
+    getCurrentTerm: `${baseUrl}/employees/api/v0/employees/current-term-meta/`
 }
 
 const Scoresheet = {
