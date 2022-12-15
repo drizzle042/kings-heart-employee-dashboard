@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Layout from "../Layout/Layout";
 import styles from "./styles/styles.module.css";
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
@@ -50,14 +51,8 @@ const Scoresheets = () => {
         function setCellClassName(params){
             if (params.value < params.colDef.maxValue / 2) {
                 return "score-failed";
-            }
-        }
-        
-        function forceLimit(params){
-            if (params.value > params.colDef.maxValue) {
-                return params.colDef.maxValue;
-            } else {
-                return params.value
+            } else if (params.value > params.colDef.maxValue){
+                return "incorrect-score"
             }
         }
 
@@ -87,7 +82,6 @@ const Scoresheets = () => {
                 editable: dataIsEditable,
                 flex: 1, 
                 maxValue: 10,
-                valueGetter: forceLimit,
                 valueFormatter: nullFormatter,
                 cellClassName: setCellClassName
             },
@@ -99,7 +93,6 @@ const Scoresheets = () => {
                 editable: dataIsEditable,
                 flex: 1, 
                 maxValue: 10,
-                valueGetter: forceLimit,
                 valueFormatter: nullFormatter,
                 cellClassName: setCellClassName
             },
@@ -111,7 +104,6 @@ const Scoresheets = () => {
                 editable: dataIsEditable,
                 flex: 1, 
                 maxValue: 20,
-                valueGetter: forceLimit,
                 valueFormatter: nullFormatter,
                 cellClassName: setCellClassName
             },
@@ -123,7 +115,6 @@ const Scoresheets = () => {
                 editable: dataIsEditable,
                 flex: 1, 
                 maxValue: 60,
-                valueGetter: forceLimit,
                 valueFormatter: nullFormatter,
                 cellClassName: setCellClassName
             }
@@ -150,7 +141,7 @@ const Scoresheets = () => {
                     url: Scoresheet.updateScoresheet,
                     method: "PUT",
                     contentType: "application/json",
-                    data: new Array(...DBData),
+                    data: DBData,
                     requestToken: window.localStorage.getItem("user-tokens") || "none"
                 })
                 worker.onmessage = (e) => {
@@ -230,14 +221,17 @@ const Scoresheets = () => {
 
         return (
             <>
-                <div
-                className={styles.searchBar}>
+                <Card
+                className={styles.searchCard}
+                elevation={4}>
                     {(FetchClassesLoading || FetchSubjectsLoading || FetchTermLoading || scoresheetIsLoading) && <Loader />}
                     <TextField 
                     select
+                    size="small"
                     className={styles.searchBarSelect}
                     sx={{
-                        margin: "10px",
+                        margin: "5px",
+                        borderRadius: "10px"
                     }}
                     onChange={(e) => {
                         setSearchData({
@@ -257,9 +251,11 @@ const Scoresheets = () => {
                     </TextField>
                     <TextField 
                     select
+                    size="small"
                     className={styles.searchBarSelect}
                     sx={{
-                        margin: "10px",
+                        margin: "5px",
+                        borderRadius: "10px"
                     }}
                     onChange={(e) => {
                         setSearchData({
@@ -279,21 +275,23 @@ const Scoresheets = () => {
                     </TextField>
                     <TextField 
                     select
+                    size="small"
                     className={styles.searchBarSelect}
                     sx={{
-                        margin: "10px",
+                        margin: "5px",
+                        borderRadius: "10px"
                     }}
                     onChange={(e) => {
                         setSearchData({
                             ...searchData,
-                            term: e.target.value
+                            termID: e.target.value
                         })
                     }}
                     label="Term">
                         <MenuItem disabled>Term</MenuItem>
                         {
                             (term &&
-                            <MenuItem selected value={term?.data?.term}>{possibleTerms[term?.data?.term]} term</MenuItem>
+                            <MenuItem selected value={term?.data?.id}>{possibleTerms[term?.data?.term]} term</MenuItem>
                             ) || 
                             <p className={styles.errorText}>{errorOnFetchTerm?.message}</p>
                         }
@@ -301,10 +299,14 @@ const Scoresheets = () => {
                     <Button
                     variant="contained"
                     size="large"
+                    sx={{
+                        margin: "5px",
+                        borderRadius: "10px"
+                    }}
                     onClick={(e) => {
                         handleSearchScoresheets(searchData)
                         setDBParams({
-                            database: `${searchData?.term}term ${searchData?.subject} ${searchData?.class}`,
+                            database: `${searchData?.termID}term ${searchData?.subject} ${searchData?.class}`,
                         })
                     }}
                     className={styles.searchBarSelect}>
@@ -315,7 +317,7 @@ const Scoresheets = () => {
                         message={feedBackMessage}
                         open={openSnackBar}
                         handleClose={closeSnackBar} />
-                </div>
+                </Card>
                 {
                     DBData &&
                     <Box 
@@ -338,6 +340,9 @@ const Scoresheets = () => {
                                 minWidth: "500px",
                                 margin: "auto",
                                 "& .score-failed": {
+                                    color: "var(--red)"
+                                },
+                                "& .incorrect-score": {
                                     color: "var(--red)"
                                 }
                             }}

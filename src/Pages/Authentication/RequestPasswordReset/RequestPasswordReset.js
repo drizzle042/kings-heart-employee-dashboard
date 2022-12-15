@@ -25,11 +25,14 @@ function RequestPasswordReset() {
   const navigate = useNavigate();
   useEffect(() => {
     if (message?.status === "Success"){
-      setOpenSnackBar(true);
       setFeedBackMessage(message?.message)
+      setOpenSnackBar(true);
       window.setTimeout(() => {
         navigate("/reset-password-success")
       }, 3000)
+    } else if (message?.message){
+      setFeedBackMessage(message?.message)
+      setOpenSnackBar(true);
     }
   // eslint-disable-next-line
   }, [message])

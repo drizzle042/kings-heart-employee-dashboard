@@ -1,17 +1,16 @@
-.searchBar {
+.searchCard {
     max-width: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border: 2rem solid var(--blue);
     border-radius: 10px;
     margin: auto;
     margin-top: 6rem;
 }
 .searchBarSelect {
-    width: 15rem;
+    width: 30%;
 }
 .errorText {
     color: var(--red);
@@ -19,10 +18,11 @@
 }
 
 @media only screen and (max-width: 500px){
-    .searchBar {
+    .searchCard {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
-        border: 1rem solid var(--blue);
+    }
+    .searchBarSelect {
+        width: 90%;
     }
 }
